@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row-1">
+    <div class="form">
+      <app-form (newToDoEvent)="onNewToDoEvent($event)"></app-form>
+    </div>
+  </div>
+  <div class="row-2">
+    <div class="row__left-1">
+      <h3 class="font-italic" *ngIf="todoPendingList.length">
+        Lista de Pendientes
+      </h3>
+      <app-todo-list
+        buttonName="Completar"
+        [todoList]="todoPendingList"
+        (todoEvent)="onToDoCompletedEvent($event)"
+      ></app-todo-list>
+    </div>
+    <div class="row__right-1">
+      <h3 class="font-italic" *ngIf="todoCompletedList.length">
+        Lista de Completados
+      </h3>
+      <app-todo-list
+        buttonName="Rehacer"
+        [todoList]="todoCompletedList"
+        (todoEvent)="onToDoRemakeEvent($event)"
+      ></app-todo-list>
+    </div>
+  </div>
+</div>
